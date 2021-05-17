@@ -7,7 +7,7 @@ const path = require('path');
 
 function t1() {
     return fs.readFileSync('./home6/t1.txt', 'utf-8', (err, data) => {
-        console.log(data)
+        console.log(data);
     });
 }
 
@@ -22,8 +22,8 @@ console.log(t1());
 
 function t2(filePath) {
     return fs.readFileSync(filePath, 'utf-8');
-
 }
+
 let filePath = 'home6/t1.txt';
 console.log(t2(filePath));
 
@@ -35,9 +35,10 @@ console.log(t2(filePath));
 
 function t3(folderName) {
     return fs.readdirSync(folderName, 'utf-8', (err, data) => {
-         console.log(data);
+        console.log(data);
     });
 }
+
 console.log(t3('home6'));
 
 // Task 4
@@ -46,7 +47,7 @@ console.log(t3('home6'));
 
 
 function t4(filepath) {
-   return fs.statSync(filepath).size / 1000;
+    return fs.statSync(filepath).size / 1000;
 }
 
 console.log(t4('home6'));
@@ -63,13 +64,13 @@ console.log(t4('home6'));
 // 13000000 -> 13MB
 
 function t5(a) {
- if (a >= 0 && a < 99) {
-     return a + "B";
- }
- if (a > 1000 && a < 999999) {
-     return a + "kB";
- }
- if (a > 1000000) return a / 1000000 + "MB";
+    if (a >= 0 && a < 99) {
+        return a + "B";
+    }
+    if (a > 1000 && a < 999999) {
+        return a + "kB";
+    }
+    if (a > 1000000) return a / 1000000 + "MB";
 }
 
 console.log(t5(34958));
@@ -80,32 +81,42 @@ console.log(t5(34958));
 // В одной строке выводится имя файла, пробел его размер ( используем t5) перенос строки.
 
 function t6(exFolder) {
-      fs.readdir(exFolder, 'utf-8', (err,data) => {
+    fs.readdir(exFolder, 'utf-8', (err, data) => {
         data.forEach(file => {
             console.log(path.extname(file) + " " + fs.statSync('home6/' + file).size);
         })
     });
 }
+
 t6('home6');
 
 
 // Task 7
-// Напишите функцию t7, которая принимает путь к файлу и выводит и возвращает его расширение.
+// Напишите функцию t7, которая принимает путь
+// к файлу и выводит и возвращает его расширение.
 
 function t7(exPath) {
-
+    return path.extname(exPath);
 }
 
-console.log(t7('example_path'));
+console.log(t7('app_06.js'));
 
 // Task 8
-// Напишите функцию t8 принимает имя папки и выводит и возвращает суммарный размер файлов в ней.
+// Напишите функцию t8 принимает имя папки
+// и выводит и возвращает суммарный размер файлов в ней.
 
 function t8(exPath) {
-
+    let sum = 0;
+    return fs.readdir(exPath, 'utf-8', (err, data) => {
+        console.log(data);
+        data.forEach(file => {
+            sum = sum + fs.statSync(exPath + '/' + file).size;
+        });
+        console.log(sum);
+    });
 }
 
-console.log(t8('example_path'));
+console.log(t8('home7'));
 
 
 // Task 9
