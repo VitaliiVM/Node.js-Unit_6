@@ -3,8 +3,11 @@
 // t1.txt в папке home6. Помимо вывода функци должна возвращать данное значение.
 
 const fs = require('fs');
+
 function t1() {
-    return fs.readFile('./home6/t1.txt', 'utf-8', (err, data) => {console.log(data)});
+    return fs.readFile('./home6/t1.txt', 'utf-8', (err, data) => {
+        console.log(data)
+    });
 }
 
 console.log(t1());
@@ -31,9 +34,11 @@ console.log(t2(filePath));
 // указанной в параметре папки ( в виде массива ) и возвращает данный массив.
 
 function t3(folderName) {
-
+    let arr = {folderName};
+    fs.readFile('arr', 'utf-8', (err, data) => {
+       console.log(arr);
+    });
 }
-
 
 console.log(t3('example_folder'));
 
@@ -47,7 +52,6 @@ function t4(filepath) {
 }
 
 console.log(t4('example_file_path'));
-
 
 
 // Task 5
