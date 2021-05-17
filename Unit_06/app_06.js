@@ -80,10 +80,13 @@ console.log(t5(34958));
 // В одной строке выводится имя файла, пробел его размер ( используем t5) перенос строки.
 
 function t6(exFolder) {
-    //return `rgb(${t5(0,255)}....допишите сами
+      fs.readdir(exFolder, 'utf-8', (err,data) => {
+        data.forEach(file => {
+            console.log(path.extname(file) + " " + fs.statSync('home6/' + file).size);
+        })
+    });
 }
-
-t6('example');
+t6('home6');
 
 
 // Task 7
